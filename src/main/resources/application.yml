@@ -1,0 +1,32 @@
+server:
+  port: 7000
+
+spring:
+  application:
+    name: dog
+  datasource:
+    url: jdbc:h2:mem:dog
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+  h2:
+    console:
+      enabled: true
+
+flyway:
+  baseline-on-migrate: true
+  enabled: true
+  locations: classpath:db/migration
+
+breeds:
+  url: https://dog.ceo
+  list:
+    all:
+      timeout: 5000
+    sub-breed:
+      timeout: 2000
